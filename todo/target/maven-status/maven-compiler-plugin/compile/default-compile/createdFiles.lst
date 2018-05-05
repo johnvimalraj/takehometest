@@ -1,0 +1,5 @@
+john/hometest/todo/rest/TodoListRepository.class
+john/hometest/todo/TodoApplication.class
+john/hometest/todo/TodoListController.class
+john/hometest/todo/rest/Todo.class
+john/hometest/todo/rest/DatabaseInitializer.class

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: john.hometest.todo.TodoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.187 s - in john.hometest.todo.TodoApplicationTests

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Todo Listing App</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/todolists.controller.js" th:src="@{/todolists.controller.js}"></script>
+</head>
+<style>
+    .tooltipClose {
+
+
+    }
+
+    .closeB {
+        visibility: hidden;
+        border: 0px solid black;
+        alignment  : right;
+        background-color: #d3d3d3;
+    }
+
+    td .closeTR {
+        alignment: right;
+    }
+    tr:hover {
+        background-color: #d3d3d3;
+    }
+
+    tr:hover td {
+        background-color: transparent;
+    }
+
+    tr:hover td.closeTR button.closeB {
+        visibility: visible;
+        alignment  : right;
+    }
+    .complete {
+        foreground-color: #808080;
+    }
+    </style>
+
+<body>
+
+<div th:width="100" ng-app="myApp" ng-controller="myCtrl">
+
+<div class="navbar-header">
+    <h1 class="navbar-brand">TODO LIST:</h1>
+</div>
+<div>
+<table  style="width:100%">
+<tr class ="tooltipClose" style="width:100%" ng-repeat="todo in todolistInComp">
+    <td><lable for="{{todos+$index}}" ><input  type='checkbox' checked='checked' id="{{todos+$index}}"
+                                              ng-model="todo.complete"  ng-change="updateTODO(todo)"  value="{{todo.complete}}" >
+    {{todo.note}}</lable></td>
+    <td class = "closeTR" > <button class="closeB" ng-click="deleteTODO(todo.id)"> &#10060;</button></td>
+</tr>
+</table>
+<br>
+
+ <div> <form ng-submit="createTODO()"><input style="width:80%" type="text" placeholder="Type and hit Enter to add" maxlength = "255"
+                                                ng-model="note" /></form></div>
+<div class="navbar-header">
+    <h1 class="navbar-brand" >DONE:</h1>
+</div>
+
+    <table  class ="tooltipClose" style="width:100%">
+        <tr style="width:100%" ng-repeat="todo in todolistComp">
+            <td><lable class="complete" for="{{todoComplete+$index}}" ><input  type='checkbox' checked='checked' id="{{todoComplete+$index}}"
+                                                              ng-model="todo.complete"  ng-change="updateTODO(todo)"  value="{{todo.complete}}" >
+                {{todo.note}}</lable></td>
+            <td class = "closeTR" > <button class="closeB" ng-click="deleteTODO(todo.id)"> &#10060;</button></td>
+        </tr>
+    </table>
+<footer class="footer" style="position: absolute; bottom:0;background-color: #f5f5f5; width: 100%">
+    <div class="container">
+        Developed by {{ firstName + " " + lastName }}
+    </div>
+</footer>
+</div>
+</body>
+</html>
