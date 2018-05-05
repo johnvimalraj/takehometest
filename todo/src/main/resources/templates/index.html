@@ -36,9 +36,7 @@
         visibility: visible;
         alignment  : right;
     }
-    .complete {
-        foreground-color: #808080;
-    }
+
     </style>
 
 <body>
@@ -67,9 +65,9 @@
 
     <table  class ="tooltipClose" style="width:100%">
         <tr style="width:100%" ng-repeat="todo in todolistComp">
-            <td><lable class="complete" for="{{todoComplete+$index}}" ><input  type='checkbox' checked='checked' id="{{todoComplete+$index}}"
+            <td><lable style="color:#CCC" for="{{todoComplete+$index}}" ><input  type='checkbox' checked='checked' id="{{todoComplete+$index}}"
                                                               ng-model="todo.complete"  ng-change="updateTODO(todo)"  value="{{todo.complete}}" >
-                {{todo.note}}</lable></td>
+                Completed {{todo.note}}</lable></td>
             <td class = "closeTR" > <button class="closeB" ng-click="deleteTODO(todo.id)"> &#10060;</button></td>
         </tr>
     </table>
